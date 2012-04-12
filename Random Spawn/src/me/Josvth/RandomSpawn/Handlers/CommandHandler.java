@@ -25,7 +25,7 @@ public class CommandHandler implements CommandExecutor{
 		plugin.getCommand("rs").setExecutor(this);
 		
 		registerCommands(new RandomSpawnCommandExecutor[]{
-				new RandomSpawnBedsCommand(), new RandomSpawnDisableCommand(), new RandomSpawnEnableCommand(), new RandomSpawnFirstJoinCommand(), new RandomSpawnHelpCommand(), new RandomSpawnInfoCommand(), new RandomSpawnKeepSpawnsCommand(), new RandomSpawnReloadCommand(), new RandomSpawnSetAreaCommand(), new RandomSpawnSetFirstSpawnCommand(), new RandomSpawnTpFirstSpawnCommand(), new RandomSpawnUnsetFirstSpawnCommand()
+				new RandomSpawnHelpCommand(), new RandomSpawnKeepSpawnsCommand(), new RandomSpawnReloadCommand(), new RandomSpawnSetAreaCommand(), new RandomSpawnSetFirstSpawnCommand(), new RandomSpawnTpFirstSpawnCommand(), new RandomSpawnUnsetFirstSpawnCommand()
 		});
 	}
 
@@ -56,6 +56,7 @@ public class CommandHandler implements CommandExecutor{
 		
 		if (!sender.hasPermission(commandExecutor.getPermission())){
 			sender.sendMessage("You don't have the permission to use this command!");
+			return true;
 		}
 		
 		if (commandExecutor.onCommand(sender, Arrays.asList(args).subList(1, args.length)) == false){
